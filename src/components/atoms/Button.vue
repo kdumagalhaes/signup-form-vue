@@ -26,7 +26,7 @@ export default {
     font-weight: $semi-bold;
     color: #fff;
     text-align: center;
-    margin-bottom: 15px;
+    margin: 20px 0 15px 0;
 
     &:hover {
         box-shadow: 0px 0px 0px 0px rgb(43, 166, 113);
