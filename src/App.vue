@@ -1,15 +1,15 @@
 <template>
-    <MainCTA />
+    <LeftContent />
 </template>
 
 <script>
-// atoms
-import { MainCTA } from '@/components/molecules'
+// organisms
+import { LeftContent } from '@/components/organisms'
 
 export default {
     name: 'App',
     components: {
-        MainCTA,
+        LeftContent,
     },
 }
 </script>
