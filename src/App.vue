@@ -1,19 +1,15 @@
 <template>
-    <TermsAndServicesWarning
-        text="By clicking the button, you are agreeing to our "
-        textLink="Terms & Services"
-        urlLink="#"
-    />
+    <PromoCTA strong="Try it free 7 days " text="then $20/mo. thereafter" />
 </template>
 
 <script>
 // atoms
-import { TermsAndServicesWarning } from '@/components/atoms'
+import { PromoCTA } from '@/components/atoms'
 
 export default {
     name: 'App',
     components: {
-        TermsAndServicesWarning,
+        PromoCTA,
     },
 }
 </script>

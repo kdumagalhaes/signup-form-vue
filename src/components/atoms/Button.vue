@@ -16,7 +16,7 @@ export default {
     text-transform: uppercase;
     width: 100%;
     height: 50px;
-    border-radius: 5px;
+    border-radius: $border-radius;
     border: none;
     background-color: $primary-green;
     box-shadow: 0px 4px 0px 0px rgb(43, 166, 113);

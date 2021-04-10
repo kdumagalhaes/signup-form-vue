@@ -16,7 +16,7 @@ export default {
     width: 100%;
     border: 1px solid $neutral-grayish-blue;
     height: 50px;
-    border-radius: 5px;
+    border-radius: $border-radius;
     padding: 0 25px;
     font-weight: $semi-bold;
 
