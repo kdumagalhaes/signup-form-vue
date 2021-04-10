@@ -14,7 +14,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-cta-paragraph {
-    line-height: 22px;
+    line-height: 26px;
     width: 100%;
     color: #fff;
     font-size: 1rem;

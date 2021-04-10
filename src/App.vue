@@ -1,15 +1,15 @@
 <template>
-    <FreeTrialForm />
+    <MainCTA />
 </template>
 
 <script>
 // atoms
-import { FreeTrialForm } from '@/components/molecules'
+import { MainCTA } from '@/components/molecules'
 
 export default {
     name: 'App',
     components: {
-        FreeTrialForm,
+        MainCTA,
     },
 }
 </script>

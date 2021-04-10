@@ -13,5 +13,8 @@ export default {
 <style lang="scss" scoped>
 .main-cta-text {
     color: #fff;
+    font-size: 2.8rem;
+    line-height: 50px;
+    margin-bottom: 30px;
 }
 </style>

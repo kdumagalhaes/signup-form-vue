@@ -1,6 +1,6 @@
 <template>
     <form class="free-trial-form">
-        <Input placeholder="First Name" type="text" />
+        <Input placeholder="First Name" type="text" autofocus />
         <Input placeholder="Last Name" type="text" />
         <Input placeholder="Email Address" type="email" />
         <Input placeholder="Password" type="password" />
