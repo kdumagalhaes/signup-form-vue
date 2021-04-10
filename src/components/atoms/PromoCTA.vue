@@ -35,4 +35,14 @@ export default {
         color: #fff;
     }
 }
+
+@media only screen and (max-width: $mobile) {
+    .promo-cta {
+        padding: 50px;
+
+        .promo-cta__text {
+            text-align: center;
+        }
+    }
+}
 </style>

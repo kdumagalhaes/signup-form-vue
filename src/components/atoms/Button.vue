@@ -33,4 +33,10 @@ export default {
         transform: translateY(4px);
     }
 }
+
+@media only screen and (max-width: $mobile) {
+    .button-tag {
+        font-size: 0.8rem;
+    }
+}
 </style>
