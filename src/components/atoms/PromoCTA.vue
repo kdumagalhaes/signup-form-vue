@@ -27,6 +27,7 @@ export default {
     border-radius: $border-radius;
     box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.253);
     font-size: 0.7rem;
+    margin-bottom: 30px;
 
     .promo-cta__text {
         font-weight: $regular;

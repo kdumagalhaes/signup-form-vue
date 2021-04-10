@@ -1,15 +1,15 @@
 <template>
-    <LeftContent />
+    <RightContent />
 </template>
 
 <script>
 // organisms
-import { LeftContent } from '@/components/organisms'
+import { RightContent } from '@/components/organisms'
 
 export default {
     name: 'App',
     components: {
-        LeftContent,
+        RightContent,
     },
 }
 </script>
