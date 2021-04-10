@@ -29,4 +29,12 @@ export default {
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: $mobile) {
+    .right-content {
+        height: 100%;
+        width: 100%;
+        margin-bottom: 40px;
+    }
+}
 </style>

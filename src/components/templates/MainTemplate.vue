@@ -24,4 +24,10 @@ export default {
     justify-content: space-between;
     align-items: center;
 }
+
+@media only screen and (max-width: $mobile) {
+    .main-template {
+        flex-direction: column;
+    }
+}
 </style>
