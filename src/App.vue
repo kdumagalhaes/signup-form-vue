@@ -1,9 +1,9 @@
 <template>
-  <div></div>
+    <h1>salut, France!</h1>
 </template>
 
 <script>
 export default {
-  name: 'App',
-};
+    name: 'App',
+}
 </script>
