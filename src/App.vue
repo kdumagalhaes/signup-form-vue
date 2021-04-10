@@ -1,5 +1,12 @@
 <template>
-    <Input placeholder="ola" type="name" autofocus />
+    <Input
+        placeholder="um"
+        type="name"
+        autofocus
+        :style="{ marginBottom: '100px' }"
+    />
+    <Input placeholder="dois" type="name" :style="{ marginBottom: '20px' }" />
+    <Input placeholder="tres" type="name" />
 </template>
 
 <script>

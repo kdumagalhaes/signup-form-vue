@@ -18,7 +18,6 @@ export default {
     height: 50px;
     border-radius: 5px;
     padding: 0 25px;
-    margin-bottom: 20px;
     font-weight: $semi-bold;
 
     &:focus {
