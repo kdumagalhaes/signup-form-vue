@@ -1,15 +1,17 @@
 <template>
-    <MainCTAText text="Learn to code by watching others" />
+    <MainCTAParagraph
+        text="See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable."
+    />
 </template>
 
 <script>
 // atoms
-import { MainCTAText } from '@/components/atoms'
+import { MainCTAParagraph } from '@/components/atoms'
 
 export default {
     name: 'App',
     components: {
-        MainCTAText,
+        MainCTAParagraph,
     },
 }
 </script>
