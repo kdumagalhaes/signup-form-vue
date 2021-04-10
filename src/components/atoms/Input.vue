@@ -19,6 +19,7 @@ export default {
     border-radius: $border-radius;
     padding: 0 25px;
     font-weight: $semi-bold;
+    margin-bottom: 20px;
 
     &:focus {
         border: 1px solid $neutral-dark-blue;

@@ -19,9 +19,10 @@ export default {
 
 <style lang="scss" scoped>
 .terms-services-warning {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: $neutral-grayish-blue;
     font-weight: $semi-bold;
+    text-align: center;
 
     .terms-services-warning__link {
         font-weight: $bold;
