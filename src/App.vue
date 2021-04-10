@@ -1,22 +1,15 @@
 <template>
-    <Input
-        placeholder="um"
-        type="name"
-        autofocus
-        :style="{ marginBottom: '100px' }"
-    />
-    <Input placeholder="dois" type="name" :style="{ marginBottom: '20px' }" />
-    <Input placeholder="tres" type="name" />
+    <Button text="claim your free trial" type="submit" />
 </template>
 
 <script>
 // atoms
-import { Input } from '@/components/atoms'
+import { Button } from '@/components/atoms'
 
 export default {
     name: 'App',
     components: {
-        Input,
+        Button,
     },
 }
 </script>
