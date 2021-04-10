@@ -22,9 +22,8 @@ export default {
 
 <style lang="scss" scoped>
 .right-content {
-    width: 100%;
-    max-width: 500px;
     height: 100vh;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;

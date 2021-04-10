@@ -18,8 +18,9 @@ export default {
 <style lang="scss" scoped>
 .left-content {
     height: 100vh;
+    width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
 </style>

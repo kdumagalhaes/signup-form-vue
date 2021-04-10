@@ -19,6 +19,7 @@ export default {
 <style lang="scss" scoped>
 .promo-cta {
     width: 100%;
+    max-width: 500px;
     background-color: $accent-blue;
     height: 55px;
     display: flex;

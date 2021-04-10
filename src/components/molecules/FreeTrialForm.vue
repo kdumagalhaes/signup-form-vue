@@ -29,6 +29,7 @@ export default {
 <style lang="scss" scoped>
 .free-trial-form {
     width: 100%;
+    max-width: 500px;
     background-color: #fff;
     padding: 35px;
     border-radius: $border-radius;
