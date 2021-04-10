@@ -1,15 +1,19 @@
 <template>
-    <Button text="claim your free trial" type="submit" />
+    <TermsAndServicesWarning
+        text="By clicking the button, you are agreeing to our "
+        textLink="Terms & Services"
+        urlLink="#"
+    />
 </template>
 
 <script>
 // atoms
-import { Button } from '@/components/atoms'
+import { TermsAndServicesWarning } from '@/components/atoms'
 
 export default {
     name: 'App',
     components: {
-        Button,
+        TermsAndServicesWarning,
     },
 }
 </script>
