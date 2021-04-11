@@ -1,24 +1,15 @@
-# signup-form-vue
+# Intro component with signup form validation using VueJS!
 
-## Project setup
-```
-yarn install
-```
+The Intro component with signup form validation using VueJS is a challenge from the Frontend Mentor platform! :)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+![](screen-capture.png)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## My tools:
 
-### Lints and fixes files
-```
-yarn lint
-```
+-   [x] VueJS;
+-   [x] Manual form validation (without libs);
+-   [x] SCSS;
+-   [x] BEM CSS;
+-   [x] Atomic Design principles;
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+**You can see the live demo and give feedbacks on the [FrontendMentor's page](https://www.frontendmentor.io/solutions/intro-component-with-signup-form-validation-using-vuejs-qT6SMC9rh).**
