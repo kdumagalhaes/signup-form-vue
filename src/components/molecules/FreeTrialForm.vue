@@ -1,6 +1,7 @@
 <template>
     <form class="free-trial-form" @submit.prevent="checkForm" novalidate>
-        <Input
+        <input
+            class="free-trial-form__input--error"
             placeholder="First Name"
             type="text"
             :model-value="name"
@@ -11,7 +12,8 @@
             {{ errors[0] }}
         </p>
 
-        <Input
+        <input
+            class="free-trial-form__input"
             placeholder="Last Name"
             type="text"
             :model-value="lastName"
@@ -21,7 +23,8 @@
             {{ errors[1] }}
         </p>
 
-        <Input
+        <input
+            class="free-trial-form__input"
             placeholder="Email Address"
             type="email"
             :model-value="email"
@@ -31,7 +34,8 @@
             {{ errors[2] }}
         </p>
 
-        <Input
+        <input
+            class="free-trial-form__input"
             placeholder="Password"
             type="password"
             :model-value="password"
@@ -56,11 +60,10 @@
 
 <script>
 // atoms
-import { Input, Button, TermsAndServicesWarning } from '@/components/atoms'
+import { Button, TermsAndServicesWarning } from '@/components/atoms'
 
 export default {
     components: {
-        Input,
         Button,
         TermsAndServicesWarning,
     },
@@ -126,6 +129,33 @@ export default {
         font-style: italic;
         color: $primary-red;
         font-weight: $semi-bold;
+    }
+}
+
+.free-trial-form__input,
+.free-trial-form__input--error {
+    width: 100%;
+    border: 1px solid $neutral-grayish-blue;
+    height: 50px;
+    border-radius: $border-radius;
+    padding: 0 25px;
+    font-weight: $semi-bold;
+    margin-top: 20px;
+
+    &:focus {
+        border: 1px solid $neutral-dark-blue;
+    }
+}
+
+.free-trial-form__input--error {
+    border: 2px solid $primary-red;
+    background-image: url('~@/assets/img/icon-error.svg');
+    background-position: right;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+
+    &:focus {
+        border: 2px solid $primary-red;
     }
 }
 </style>
