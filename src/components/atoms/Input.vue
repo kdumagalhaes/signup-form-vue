@@ -1,6 +1,6 @@
 <template>
     <input
-        class="input-tag--error"
+        class="input-tag"
         :placeholder="placeholder"
         :type="type"
         :value="modelValue"

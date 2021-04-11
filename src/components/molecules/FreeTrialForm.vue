@@ -7,7 +7,7 @@
             @update:model-value="name = $event"
             autofocus
         />
-        <p v-if="showErrorMessage" class="free-trial-form__error-message">
+        <p v-if="nameIsEmpty" class="free-trial-form__error-message">
             {{ errors[0] }}
         </p>
 
@@ -17,7 +17,7 @@
             :model-value="lastName"
             @update:model-value="lastName = $event"
         />
-        <p v-if="showErrorMessage" class="free-trial-form__error-message">
+        <p v-if="lastNameIsEmpty" class="free-trial-form__error-message">
             {{ errors[1] }}
         </p>
 
@@ -27,7 +27,7 @@
             :model-value="email"
             @update:model-value="email = $event"
         />
-        <p v-if="showErrorMessage" class="free-trial-form__error-message">
+        <p v-if="emailIsNotValid" class="free-trial-form__error-message">
             {{ errors[2] }}
         </p>
 
@@ -37,11 +37,15 @@
             :model-value="password"
             @update:model-value="password = $event"
         />
-        <p v-if="showErrorMessage" class="free-trial-form__error-message">
+        <p v-if="passwordIsEmpty" class="free-trial-form__error-message">
             {{ errors[3] }}
         </p>
 
-        <Button text="Claim your free trial" />
+        <Button
+            disabled="!formIsValid"
+            text="Claim your free trial"
+            type="submit"
+        />
         <TermsAndServicesWarning
             text="By clicking the button, you are agreeing to our "
             textLink="Terms and Services"
@@ -70,25 +74,34 @@ export default {
                 'Password cannot be empty',
             ],
             name: null,
-            lastName: '',
-            email: '',
-            password: '',
-            showErrorMessage: false,
+            lastName: null,
+            email: null,
+            password: null,
+            emailIsNotValid: false,
+            nameIsEmpty: false,
+            lastNameIsEmpty: false,
+            passwordIsEmpty: false,
             regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         }
     },
 
-    // fazero checkForm verificar
-    // se os inputs estao vazios,
-    // se email bate com regex
     // passar valor pro input original informando pra mudar o CSS
     // apresentar as mensagens de erro quando bater com as regras
 
     methods: {
         checkForm() {
             if (!this.validEmail(this.email)) {
-                this.showErrorMessage = true
+                this.emailIsNotValid = true
             }
+            if (!this.nameIsValid) {
+                this.nameIsEmpty = true
+            }
+            // if (this.lastName === null) {
+            //     this.lastNameIsEmpty = true
+            // }
+            // if (this.password === null) {
+            //     this.passwordIsEmpty = true
+            // }
         },
         validEmail(email) {
             return this.regex.test(email)
