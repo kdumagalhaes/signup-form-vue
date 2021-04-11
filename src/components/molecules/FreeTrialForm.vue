@@ -5,15 +5,15 @@
             placeholder="First Name"
             type="text"
             name="firstName"
-            :model="firstName"
+            v-model="firstName"
             v-bind:class="[
-                nameIsEmpty
+                firstNameIsEmpty
                     ? 'free-trial-form__input--error'
                     : 'free-trial-form__input',
             ]"
             autofocus
         />
-        <p v-if="nameIsEmpty" class="free-trial-form__error-message">
+        <p v-if="firstNameIsEmpty" class="free-trial-form__error-message">
             {{ errors[0] }}
         </p>
 
@@ -22,7 +22,12 @@
             placeholder="Last Name"
             type="text"
             name="lastName"
-            :model="lastName"
+            v-model="lastName"
+            v-bind:class="[
+                lastNameIsEmpty
+                    ? 'free-trial-form__input--error'
+                    : 'free-trial-form__input',
+            ]"
         />
         <p v-if="lastNameIsEmpty" class="free-trial-form__error-message">
             {{ errors[1] }}
@@ -33,14 +38,14 @@
             placeholder="Email Address"
             type="email"
             name="email"
-            :model="email"
+            v-model="email"
             v-bind:class="[
-                emailIsNotValid
+                emailIsValid
                     ? 'free-trial-form__input--error'
                     : 'free-trial-form__input',
             ]"
         />
-        <p v-if="emailIsNotValid" class="free-trial-form__error-message">
+        <p v-if="emailIsValid" class="free-trial-form__error-message">
             {{ errors[2] }}
         </p>
 
@@ -49,7 +54,12 @@
             placeholder="Password"
             type="password"
             name="password"
-            :model="password"
+            v-model="password"
+            v-bind:class="[
+                passwordIsEmpty
+                    ? 'free-trial-form__input--error'
+                    : 'free-trial-form__input',
+            ]"
         />
         <p v-if="passwordIsEmpty" class="free-trial-form__error-message">
             {{ errors[3] }}
@@ -81,13 +91,13 @@ export default {
                 'Looks like this is not an email',
                 'Password cannot be empty',
             ],
-            firstName: null,
-            lastName: null,
-            email: null,
-            password: null,
-            emailIsNotValid: false,
-            nameIsEmpty: false,
+            firstName: '',
+            firstNameIsEmpty: false,
+            lastName: '',
             lastNameIsEmpty: false,
+            email: '',
+            emailIsValid: false,
+            password: '',
             passwordIsEmpty: false,
             regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
         }
@@ -95,9 +105,19 @@ export default {
 
     methods: {
         checkForm() {
-            if (!this.validEmail(this.email)) {
-                this.emailIsNotValid = true
+            if (this.firstName === '') {
+                this.firstNameIsEmpty = true
             }
+            if (this.lastName === '') {
+                this.lastNameIsEmpty = true
+            }
+            if (!this.validEmail(this.email)) {
+                this.emailIsValid = true
+            }
+            if (this.password === '') {
+                this.passwordIsEmpty = true
+            }
+            console.log('submitou')
         },
         validEmail(email) {
             return this.regex.test(email)
