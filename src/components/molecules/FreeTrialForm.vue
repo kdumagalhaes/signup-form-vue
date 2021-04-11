@@ -1,10 +1,55 @@
 <template>
-    <form class="free-trial-form">
-        <Input placeholder="First Name" type="text" autofocus />
-        <Input placeholder="Last Name" type="text" />
-        <Input placeholder="Email Address" type="email" />
-        <Input placeholder="Password" type="password" />
-        <Button text="Claim your free trial" />
+    <form class="free-trial-form" @submit.prevent="checkForm" novalidate>
+        <input
+            class="free-trial-form__input--error"
+            placeholder="First Name"
+            type="text"
+            :model-value="name"
+            @update:model-value="name = $event"
+            autofocus
+        />
+        <p v-if="nameIsEmpty" class="free-trial-form__error-message">
+            {{ errors[0] }}
+        </p>
+
+        <input
+            class="free-trial-form__input"
+            placeholder="Last Name"
+            type="text"
+            :model-value="lastName"
+            @update:model-value="lastName = $event"
+        />
+        <p v-if="lastNameIsEmpty" class="free-trial-form__error-message">
+            {{ errors[1] }}
+        </p>
+
+        <input
+            class="free-trial-form__input"
+            placeholder="Email Address"
+            type="email"
+            :model-value="email"
+            @update:model-value="email = $event"
+        />
+        <p v-if="emailIsNotValid" class="free-trial-form__error-message">
+            {{ errors[2] }}
+        </p>
+
+        <input
+            class="free-trial-form__input"
+            placeholder="Password"
+            type="password"
+            :model-value="password"
+            @update:model-value="password = $event"
+        />
+        <p v-if="passwordIsEmpty" class="free-trial-form__error-message">
+            {{ errors[3] }}
+        </p>
+
+        <Button
+            disabled="!formIsValid"
+            text="Claim your free trial"
+            type="submit"
+        />
         <TermsAndServicesWarning
             text="By clicking the button, you are agreeing to our "
             textLink="Terms and Services"
@@ -15,13 +60,55 @@
 
 <script>
 // atoms
-import { Input, Button, TermsAndServicesWarning } from '@/components/atoms'
+import { Button, TermsAndServicesWarning } from '@/components/atoms'
 
 export default {
     components: {
-        Input,
         Button,
         TermsAndServicesWarning,
+    },
+
+    data() {
+        return {
+            errors: [
+                'First Name cannot be empty',
+                'Last Name cannot be empty',
+                'Looks like this is not an email',
+                'Password cannot be empty',
+            ],
+            name: null,
+            lastName: null,
+            email: null,
+            password: null,
+            emailIsNotValid: false,
+            nameIsEmpty: false,
+            lastNameIsEmpty: false,
+            passwordIsEmpty: false,
+            regex: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+        }
+    },
+
+    // passar valor pro input original informando pra mudar o CSS
+    // apresentar as mensagens de erro quando bater com as regras
+
+    methods: {
+        checkForm() {
+            if (!this.validEmail(this.email)) {
+                this.emailIsNotValid = true
+            }
+            if (!this.nameIsValid) {
+                this.nameIsEmpty = true
+            }
+            // if (this.lastName === null) {
+            //     this.lastNameIsEmpty = true
+            // }
+            // if (this.password === null) {
+            //     this.passwordIsEmpty = true
+            // }
+        },
+        validEmail(email) {
+            return this.regex.test(email)
+        },
     },
 }
 </script>
@@ -34,5 +121,41 @@ export default {
     padding: 35px;
     border-radius: $border-radius;
     box-shadow: 0px 8px 0px 0px rgba(0, 0, 0, 0.253);
+
+    .free-trial-form__error-message {
+        text-align: right;
+        font-size: 0.6rem;
+        margin-top: 5px;
+        font-style: italic;
+        color: $primary-red;
+        font-weight: $semi-bold;
+    }
+}
+
+.free-trial-form__input,
+.free-trial-form__input--error {
+    width: 100%;
+    border: 1px solid $neutral-grayish-blue;
+    height: 50px;
+    border-radius: $border-radius;
+    padding: 0 25px;
+    font-weight: $semi-bold;
+    margin-top: 20px;
+
+    &:focus {
+        border: 1px solid $neutral-dark-blue;
+    }
+}
+
+.free-trial-form__input--error {
+    border: 2px solid $primary-red;
+    background-image: url('~@/assets/img/icon-error.svg');
+    background-position: right;
+    background-position-x: 95%;
+    background-repeat: no-repeat;
+
+    &:focus {
+        border: 2px solid $primary-red;
+    }
 }
 </style>
