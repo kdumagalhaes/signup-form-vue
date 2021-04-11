@@ -107,17 +107,24 @@ export default {
         checkForm() {
             if (this.firstName === '') {
                 this.firstNameIsEmpty = true
+            } else {
+                this.firstNameIsEmpty = false
             }
             if (this.lastName === '') {
                 this.lastNameIsEmpty = true
+            } else {
+                this.lastNameIsEmpty = false
             }
             if (!this.validEmail(this.email)) {
                 this.emailIsValid = true
+            } else {
+                this.emailIsValid = false
             }
             if (this.password === '') {
                 this.passwordIsEmpty = true
+            } else {
+                this.passwordIsEmpty = false
             }
-            console.log('submitou')
         },
         validEmail(email) {
             return this.regex.test(email)
