@@ -19,7 +19,6 @@ export default {
 <style lang="scss" scoped>
 .app {
     width: 100%;
-    max-width: $desktop;
     background-color: $primary-red;
     padding: 0 20px 0 20px;
     background-image: url('~@/assets/img/bg-intro-desktop.png');
